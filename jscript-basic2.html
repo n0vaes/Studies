@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <title>Curso Jscript</title>
+    </head>
+    <body>
+        <div id="app">
+        <!--    <button class="botao">Adicionar Cx Vermelha</button>  -->
+        <input type="text" name="nome">
+        <button class="botao">Mostrar</button>
+        <button class="adicionar">Adicionar</button>
+        <button class="remover">Remover</button>
+        </div>
+        
+        <script>
+            // 1o/2o exercicio
+
+            // var btnElement = document.querySelector('button.botao');
+
+            // btnElement.onclick = function() {
+            //     var boxElement = document.createElement('div');
+            //     boxElement.setAttribute('class', 'box');
+
+            //     boxElement.style.width = 100;
+            //     boxElement.style.height = 100;
+            //     boxElement.style.backgroundColor = '#f00';
+                
+            //     boxElement.onmouseover = function () {
+            //         function getRandomColor() {
+            //             var letters = "0123456789ABCDEF";
+            //             var color = "#";
+            //             for (var i = 0; i < 6; i++) {
+            //                 color += letters[Math.floor(Math.random() * 16)];
+            //             }
+            //             return color;
+            //     };
+            //     var newColor = getRandomColor();
+            //     boxElement.style.backgroundColor = newColor;
+
+            // }
+        
+
+            //     var containerElement = document.querySelector('#app');
+            //     containerElement.appendChild(boxElement);
+            // }
+
+            // 3o exercicio
+
+
+            // var nomes = ["Diego", "Gabriel", "Lucas"];
+
+            // var containerElement = document.querySelector('#app');
+            
+            // var tagElement = document.createElement('ul');
+            // containerElement.appendChild(tagElement);
+    
+            // for (i=0; i<nomes.length; i++){
+            //     var listaElement = document.createElement('li');
+            //     var nomeElement = document.createTextNode(nomes[i]);
+            //     listaElement.appendChild(nomeElement);
+            //     document.querySelector('ul').appendChild(listaElement);
+            //     console.log(i);
+            // };
+            var containerElement = document.querySelector('#app');
+            
+            var tagElement = document.createElement('ul');
+            containerElement.appendChild(tagElement);
+
+
+            var btnElement = document.querySelector('button.botao');
+            var btnAdicionar = document.querySelector('button.adicionar');
+            var btnRemover = document.querySelector('button.remover');
+            var nomes = ['Diego', 'Gabriel', 'Lucas', 'Alan'];
+
+            btnAdicionar.onclick = function () {
+                var inputValue = document.querySelector('input').value;
+                if (inputValue != "") {
+                    nomes.push(inputValue);
+                }
+            }
+            btnRemover.onclick = function () {
+                var removeValue = document.querySelector('input').value;
+                var indice = nomes.indexOf(removeValue);
+                if (nomes != null && indice > -1) {
+                    nomes.splice(indice, 1);
+                }
+            }
+
+            btnElement.onclick = function () {
+                for (var i = 0; i < nomes.length; i++) {
+                    var lista = document.createElement('li');
+                    var n = document.createTextNode (nomes[i]);
+                    lista.appendChild(n);
+                    document.querySelector('ul').appendChild(lista);
+                }
+            }
+            
+
+        </script>
+    </body>
+</html>
